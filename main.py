@@ -1,6 +1,6 @@
-height = input("Enter your height in m: ")
-weight = input("Enter your weight in kg: ")
-calculation = float(weight) / float(height) ** 2
+height = float(input("Enter your height in m: "))
+weight = float(input("Enter your weight in kg: "))
+calculation = weight / height ** 2
 bmi = int(calculation)
-print(weight + " / " + height + " * " + height + " = " + str(calculation))
+print(f"{weight} / {height} * {height} = {calculation}")
 print(bmi)
