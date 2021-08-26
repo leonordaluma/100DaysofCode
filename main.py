@@ -1,15 +1,11 @@
-height = float(input("Enter your height in m: "))
-weight = float(input("Enter your weight in kg: "))
-calculation = weight / height ** 2
-bmi = int(round(calculation))
-print(f"{weight} / {height} * {height} = {calculation}")
-if bmi < 18.5:
-    print(f"Your BMI is {bmi}, you are underweight.")
-elif bmi < 25:
-    print(f"Your BMI is {bmi}, you have a normal weight.")
-elif bmi < 30:
-    print(f"Your BMI is {bmi}, you are overweight.")
-elif bmi < 35:
-    print(f"Your BMI is {bmi}, you are obese.")
+year = int(input("Which year do you want to check? "))
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print(f"{year} is a leap year.")
+        else:
+            print(f"{year} is not a leap year.")
+    else:
+        print(f"{year} is a leap year.")
 else:
-    print(f"Your BMI is {bmi}, you are clinically obese.")
+    print(f"{year} is not a leap year.")
