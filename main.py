@@ -1,7 +1,7 @@
-age = input("What is your current age? ")
-age_in_int = int(age)
-remaining_years = 90 - age_in_int
-remaining_days = remaining_years * 365
-remaining_weeks = remaining_years * 52
-remaining_months = remaining_years * 12
-print(f"You have {remaining_days}, {remaining_weeks} weeks and {remaining_months} left.")
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+
+if height > 120:
+    print("You can ride the rollercoaster!")
+else:
+    print("Sorry!")
