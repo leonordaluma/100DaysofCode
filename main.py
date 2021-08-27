@@ -1,25 +1,30 @@
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-bill = 0
+print("welcome to the Love Calculator!")
+name1 = input("What is your name? ")
+name2 = input("What is their name? ")
+count = 10
 
-if height >= 120:
-    print("You can ride the rollercoaster!")
-    age = int(input("How old are you? "))
-    if age < 12:
-        bill += 5
-        print("Pay $5.")
-    elif age <= 18:
-        bill += 7
-        print("Pay $7.")
-    elif age <= 55 and age >= 45:
-        print("You have a free ride.")
-    else:
-        print("Pay $12.")
-    
-    photo = input("Do you want a photo? Y or N. ")
-    if photo == "Y":
-        bill += 3
+names = name1 + name2
+names = names.lower()
 
-    print(f"Your total bill is {bill}")    
+t = names.count("t")
+r = names.count("r")
+u = names.count("u")
+e = names.count("e")
+true = t + r + u + e
+#count*= true
+
+l = names.count("l")
+o = names.count("o")
+v = names.count("v")
+e = names.count("e")
+love = l + o + v + e
+#count+=love
+
+count = true * 10 + love
+
+if count < 10 or count > 90:
+    print(f"Your score is {count}, you go like coke and mentos.")
+elif count >=40 and count <= 50:
+    print(f"Your score is {count}, you are alright together.")
 else:
-    print("Sorry!")
+    print(f"Your score is {count}")
