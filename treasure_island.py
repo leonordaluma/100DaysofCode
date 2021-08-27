@@ -19,11 +19,11 @@ print('''
                 `--'   `--+-'
 ***********************************************
 ''')
-print("Welcome! You're in the Mellenium Falcon.")
-print("Your mission is to find Han Solo. ")
+print("Welcome! You're in the Millennium Falcon.")
+print("Your mission is to find Han Solo. Keep a sharp eye out for the Imperial Military. ")
 
-direction = input('Search the ship. Where do you start? Type "left" or "right"\n')
-if direction == "Left" or direction == "left":
+direction = input('Search the galaxy. Where do you start? Type "Tatooine" or "Corellia"\n')
+if direction == "Tatooine" or direction == "tatooine":
     search = input('''There's no one here. Type "search" to continue searching. Type "wait" to wait for something  to happen.\n''')
     if search == "Wait" or search == "wait":
         door = input("After minutes of waiting you stumbled upon 3 doors. One red, one yellow and blue. Which door do you open? Type the color\n")

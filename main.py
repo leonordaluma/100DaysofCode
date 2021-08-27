@@ -1,30 +1,10 @@
-print("welcome to the Love Calculator!")
-name1 = input("What is your name? ")
-name2 = input("What is their name? ")
-count = 10
+import random
 
-names = name1 + name2
-names = names.lower()
+test_seed = int(input("Create a seed number: "))
+random.seed(test_seed)
+random_int = random.randint(0,1)
 
-t = names.count("t")
-r = names.count("r")
-u = names.count("u")
-e = names.count("e")
-true = t + r + u + e
-#count*= true
-
-l = names.count("l")
-o = names.count("o")
-v = names.count("v")
-e = names.count("e")
-love = l + o + v + e
-#count+=love
-
-count = true * 10 + love
-
-if count < 10 or count > 90:
-    print(f"Your score is {count}, you go like coke and mentos.")
-elif count >=40 and count <= 50:
-    print(f"Your score is {count}, you are alright together.")
+if random_int == 0:
+    print("Tails")
 else:
-    print(f"Your score is {count}")
+    print("Heads")
