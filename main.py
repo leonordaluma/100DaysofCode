@@ -1,14 +1,15 @@
-student_heights = input("Input a list of student heights ").split()
+student_scores = input("Input a list of student scores ").split()
 
-for n in range(0, len(student_heights)):
-    student_heights[n] = int(student_heights[n])
-print(student_heights)
+for n in range(0, len(student_scores)):
+    student_scores[n] = int(student_scores[n])
+print(student_scores)
 
-number_of_heights = 0
-sum_of_heights = 0
-for n in student_heights:
-    number_of_heights += 1
-    sum_of_heights += n
+max_score = 0
+for n in student_scores:
+    current_number = n
+    if current_number > max_score:
+        max_score = current_number
+    else:
+        temp = current_number
 
-average_height = round(sum_of_heights / number_of_heights)
-print(average_height)
+print(f"The highest score is: {max_score}")
