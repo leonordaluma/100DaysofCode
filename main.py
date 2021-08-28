@@ -1,12 +1,14 @@
-row1 = ["💼", "💼", "💼"]
-row2 = ["💼", "💼", "💼"]
-row3 = ["💼", "💼", "💼"]
-map = [row1, row2, row3]
-print(f"{row1}\n{row2}\n{row3}\n")
-position = input("Where do you want to put the treasure? ")
-column = int(position[0])
-row = int(position[1])
+student_heights = input("Input a list of student heights ").split()
 
-map[column-1][row - 1] = "X"
+for n in range(0, len(student_heights)):
+    student_heights[n] = int(student_heights[n])
+print(student_heights)
 
-print(f"{row1}\n{row2}\n{row3}\n")
+number_of_heights = 0
+sum_of_heights = 0
+for n in student_heights:
+    number_of_heights += 1
+    sum_of_heights += n
+
+average_height = round(sum_of_heights / number_of_heights)
+print(average_height)
