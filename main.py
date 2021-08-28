@@ -1,9 +1,9 @@
-total = 0
-for n in range(1,101):
-    if n % 2 == 0:
-        total += n    
-print(total)
-
-# for n in range(2, 101, 2):
-#     total +=n
-# print(total)
+for n in range(1, 101):
+    if n % 3 == 0 and n % 5 == 0:
+        print("FizzBuzz")
+    elif n % 3 == 0:
+        print("Fizz")
+    elif n % 5 == 0:
+        print("Buzz")
+    else:
+        print(n)
