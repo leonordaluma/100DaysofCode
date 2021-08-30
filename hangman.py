@@ -6,11 +6,12 @@ for letter in chosen_word:
     display += "_"
 print(chosen_word)
 print(display)
-guess = input("Guess a letter: ").lower()
+lenght = len(chosen_word)
+    guess = input("Guess a letter: ").lower()
+    for letter in range(0, len(chosen_word)):
+        if guess == chosen_word[letter]:
+            display[letter] = guess
 
-for letter in range(0, len(chosen_word)):
-    if guess == chosen_word[letter]:
-        display[letter] = guess
 
 print(display)
 
