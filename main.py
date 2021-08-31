@@ -2,4 +2,4 @@ def greet_with(name, location):
     print(f"Hello {name}")
     print(f"What is it like in {location}")
 
-greet_with("Leonor", "Soul Society")
+greet_with(location="Soul Society", name="Leonor")
