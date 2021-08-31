@@ -1,5 +1,10 @@
-def greet_with(name, location):
-    print(f"Hello {name}")
-    print(f"What is it like in {location}")
+def paint_calc(height, width, cover):
+    area = height * width
+    cans = area / cover
+    number_of_cans = int(round(cans))
+    print(f"You'll need {number_of_cans} cans of paint.")
 
-greet_with(location="Soul Society", name="Leonor")
+test_h = int(input("Height of wall: "))
+test_w = int(input("Width of wall: "))
+coverage = 5
+paint_calc(height = test_h, width = test_w, cover = coverage)
