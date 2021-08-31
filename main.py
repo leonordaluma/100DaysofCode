@@ -1,7 +1,5 @@
-def greet():
-    print("Hello")
-    print("How are you?")
-    print("This is a greeting.")
+def greet_with(name, location):
+    print(f"Hello {name}")
+    print(f"What is it like in {location}")
 
-
-greet()
+greet_with("Leonor", "Soul Society")
