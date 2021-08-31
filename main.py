@@ -1,9 +1,7 @@
-for n in range(1, 101):
-    if n % 3 == 0 and n % 5 == 0:
-        print("FizzBuzz")
-    elif n % 3 == 0:
-        print("Fizz")
-    elif n % 5 == 0:
-        print("Buzz")
-    else:
-        print(n)
+def greet():
+    print("Hello")
+    print("How are you?")
+    print("This is a greeting.")
+
+
+greet()
