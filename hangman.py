@@ -6,13 +6,15 @@ for letter in chosen_word:
     display += "_"
 print(chosen_word)
 print(display)
-length = len(chosen_word)
+end_of_game = False
 
-while "_" in display:
+while not end_of_game:
     guess = input("Guess a letter: ").lower()
     for letter in range(0, len(chosen_word)):
       if guess == chosen_word[letter]:
         display[letter] = guess
     print(display)
 
-print("You win")
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
