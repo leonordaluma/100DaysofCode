@@ -1,12 +1,14 @@
 def prime_checker(number):
-    if number != 1 and not number < 1:
-       if number % number == 0 and number % 1 == 0:
-          print("It's a prime number.")
-       else:
-        print("It's a composite number.")
+    is_prime = True
+    for i in range(2, number):
+        print(i)
+        if number % i == 0:
+            is_prime = False
+    if is_prime:
+        print("It's a prime.")
     else:
-        print("It's not a prime number.")
-    
+        print("It's not a prime.")
+
     
 
 n = int(input("Check this number: "))
