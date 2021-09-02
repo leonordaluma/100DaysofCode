@@ -16,7 +16,7 @@ def caesar(text, shift, direction):
             elif direction == "decode":
                 key = position - shift
         plain_text += alphabet[key]
-    print(f"The encoded text is {plain_text}")        
+    print(f"The {direction}d text is {plain_text}")        
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
