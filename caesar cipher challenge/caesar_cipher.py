@@ -14,10 +14,20 @@ def encrypt(text, shift):
             cipher_text += alphabet[key]
     print(f"The encoded text is {cipher_text}")
 
-
+def decrypt(text, shift):
+    decipher_text = ""
+    for letter in text:
+        position = alphabet.index(letter)
+        if alphabet[position] == letter:
+            key = position - shift
+            decipher_text += alphabet[key]
+    print(f"The decoded text is {decipher_text}")    
         
 
-# direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number: "))
-encrypt(text, shift)
+if direction == "encode":
+    encrypt(text, shift)
+elif direction == "decode":
+    decrypt(text, shift)
