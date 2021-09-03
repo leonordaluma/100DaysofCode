@@ -1,22 +1,28 @@
-student_scores = {
-    "Harry" : 81,
-    "Ron" : 78,
-    "Hermione" : 99,
-    "Draco" : 74,
-    "Neville" : 62,
+# Nesting a Dictionary in a Dictionary
+travel_log = {
+    "France" : {
+        "cities_visited" : ["Paris", "Lille", "Dijon"],
+        "total_visits" : 12
+    },
+    "Germany" : {
+        "cities_visited" : ["Berlin", "Hamburg", "Stuttgard"],
+        "total_visits" : 2
+    } 
 }
 
-student_grades = {}
+# Nesting Dictionary in a List
+travel_log = [
+    {
+        "country" : "France",
+        "cities_visited" : ["Paris", "Lille", "Dijon"],
+        "total_visits" : 12
+    },
+    {
+        "country" : "Germany",
+        "cities_visited" : ["Berlin", "Hamburg", "Stuttgard"],
+        "total_visits" : 2
+    }
+]
 
-for score in student_scores:
-    score_value = student_scores[score]
-    if score_value >= 91 and score_value <= 100:
-        student_grades[score] = "Outstanding"
-    elif score_value >= 81 and score_value <= 90:
-        student_grades[score] = "Exceeds Expectations"
-    elif score_value >= 71 and score_value <= 80:
-        student_grades[score] = "Acceptable"
-    elif score_value <= 70:
-        student_grades[score] = "Fail"
+print(travel_log[0])
 
-print(student_grades)
