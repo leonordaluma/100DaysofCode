@@ -1,28 +1,23 @@
-# Nesting a Dictionary in a Dictionary
-travel_log = {
-    "France" : {
-        "cities_visited" : ["Paris", "Lille", "Dijon"],
-        "total_visits" : 12
-    },
-    "Germany" : {
-        "cities_visited" : ["Berlin", "Hamburg", "Stuttgard"],
-        "total_visits" : 2
-    } 
-}
-
-# Nesting Dictionary in a List
 travel_log = [
     {
         "country" : "France",
+        "total_visits" : 12,
         "cities_visited" : ["Paris", "Lille", "Dijon"],
-        "total_visits" : 12
     },
     {
         "country" : "Germany",
+        "total_visits" : 2,
         "cities_visited" : ["Berlin", "Hamburg", "Stuttgard"],
-        "total_visits" : 2
     }
 ]
 
-print(travel_log[0])
+def add_new_country(country, visits, cities):
+    new_country = {}
+    new_country["country"] = country
+    new_country["total_visits"] = visits
+    new_country["cities_visited"] = cities
+    travel_log.append(new_country)
+    
 
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+print(travel_log)
