@@ -16,19 +16,23 @@ operations = {
     "*" : multiply,
     "/" : divide,
 }
+def calculator():
+    num1 = int(input("Enter the first number: "))
+    for symbol in operations:
+        print(symbol)
 
+    end_calculating = False
+    while end_calculating is False:
+        operation_symbol = input("Pick an operation: ")
+        function = operations[operation_symbol]
+        num2 = int(input("Enter the next number: "))
+        answer = function(num1, num2)
+        print(f"{num1} {operation_symbol} {num2} = {answer}")
+        num1 = answer
 
-num1 = int(input("Enter the first number: "))
-num2 = int(input("Enter the second number: "))
-for symbol in operations:
-    print(symbol)
-operation_symbol = input("Pick an operation from the line above: ")
-function = operations[operation_symbol]
-answer = function(num1, num2)
-print(f"{num1} {operation_symbol} {num2} = {answer}")
+        user_input = input(f"Type 'y' to continue calculating with {answer}, or type 'n' start a new calculation.: ")
+        if user_input != 'y':
+            end_calculating = True
+            calculator()
 
-operation_symbol = input("Pick another operation: ")
-num3 = int(input("Enter the next number: "))
-function = operations[operation_symbol]
-answer2 = function(answer, num3)
-print(f"{answer} {operation_symbol} {num3} = {answer2}")
+calculator()
