@@ -17,7 +17,7 @@ operations = {
     "/" : divide,
 }
 def calculator():
-    num1 = int(input("Enter the first number: "))
+    num1 = float(input("Enter the first number: "))
     for symbol in operations:
         print(symbol)
 
@@ -25,7 +25,7 @@ def calculator():
     while end_calculating is False:
         operation_symbol = input("Pick an operation: ")
         function = operations[operation_symbol]
-        num2 = int(input("Enter the next number: "))
+        num2 = float(input("Enter the next number: "))
         answer = function(num1, num2)
         print(f"{num1} {operation_symbol} {num2} = {answer}")
         num1 = answer
