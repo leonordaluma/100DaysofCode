@@ -23,6 +23,7 @@ while is_game_continue:
         print("Too high.")
     elif guess < number:
         print("Too low.")
+    print("Guess again.")
     attempts -= 1
 
     if attempts == 0:
