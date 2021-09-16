@@ -3,6 +3,7 @@ from money_machine import MoneyMachine
 from coffee_maker import CoffeeMaker
 
 
+# coffee_items = MenuItem(name, water, milk, coffee, cost)
 coffee_menu = Menu()
 coffee_machine = CoffeeMaker()
 cash_register = MoneyMachine()
@@ -17,6 +18,5 @@ while is_on:
     else:
         drink = coffee_menu.find_drink(order)
         if coffee_machine.is_resource_sufficient(drink):
-            payment = cash_register.process_coins()
-            if cash_register.make_payment(cost):
+            if cash_register.make_payment(drink.cost):
                 coffee_machine.make_coffee(drink)
