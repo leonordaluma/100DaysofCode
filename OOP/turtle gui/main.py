@@ -3,24 +3,16 @@ import random
 
 tim = Turtle()
 screen = Screen()
-color = ["MediumAquamarine", "LightCoral", "Tomato", "LightBlue", "MistyRose", "DarkOrange"]
+color = ["MediumAquamarine", "LightCoral", "Tomato", "LightBlue", "MistyRose","DarkOliveGreen", "LightGreen", "SlateBlue", "RoyalBlue"]
+directions = [0,90,180,270]
+tim.speed('fastest')
+tim.pensize(10)
 
-def draw_shape(sides):
-    shape_angle = 360 / sides
-    for _ in range(sides):
-        tim.right(shape_angle)
-        tim.forward(100)
-
-for n in range(3,11):
+for _ in range(250):
     tim.color(random.choice(color))
-    draw_shape(n)
-
-# tim.right(120)
-# tim.forward(100)
-# tim.right(120)
-# tim.forward(100)
-
-
+    direction = random.choice(directions)
+    tim.seth(direction)
+    tim.fd(25)
 
 screen = Screen()
 screen.exitonclick()
