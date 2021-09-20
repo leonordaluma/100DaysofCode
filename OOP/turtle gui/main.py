@@ -2,6 +2,7 @@ import turtle as t
 import random
 
 tim = t.Turtle()
+tim.speed('fastest')
 t.colormode(255)
 def random_color():
     r = random.randint(0, 255)
@@ -11,16 +12,13 @@ def random_color():
     return rgb
 
 
-color = ["MediumAquamarine", "LightCoral", "Tomato", "LightBlue", "MistyRose","DarkOliveGreen", "LightGreen", "SlateBlue", "RoyalBlue"]
-directions = [0,90,180,270]
-tim.speed('fastest')
-tim.pensize(10)
-
-for _ in range(250):
+for _ in range(80):
     tim.color(random_color())
-    direction = random.choice(directions)
-    tim.seth(direction)
-    tim.fd(25)
+    tim.circle(100)
+    current_heading = tim.heading()
+    tim.seth(current_heading + 5)
 
-screen = Screen()
+    
+
+screen = t.Screen()
 screen.exitonclick()
