@@ -1,17 +1,24 @@
 #pip install colorgram.py
 import colorgram
+import turtle as t
+import random
 
-colors = colorgram.extract('image.jpg', 15)
-# colorgram.extract returns Color objects, which let you access
-# RGB, HSL, and what proportion of the image was that color.
-first_color = colors[0]
-rgb = first_color.rgb # e.g. (255, 151, 210)
-hsl = first_color.hsl # e.g. (230, 255, 203)
-proportion  = first_color.proportion # e.g. 0.34
+t.colormode(255)
+tim = t.Turtle()
 
-# RGB and HSL are named tuples, so values can be accessed as properties.
-# These all work just as well:
-red = rgb[0]
-red = rgb.r
-saturation = hsl[1]
-saturation = hsl.s
+
+rgb_colors = []
+colors = colorgram.extract('image.jpg', 14)
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color = (r, g, b)
+    rgb_colors.append(new_color)
+
+# tim.dot(20, random.choice(rgb_colors))
+
+
+# screen = t.Screen()
+# screen.exitonclick()
+
