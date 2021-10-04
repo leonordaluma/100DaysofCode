@@ -1,3 +1,4 @@
+from time import sleep
 from turtle import Turtle
 ALIGNMENT = "center"
 FONT = ("Consolas", 12, "normal")
@@ -16,6 +17,10 @@ class Scoreboard(Turtle):
     
     def update_score(self):
         self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+    
+    def game_over(self):
+        self.goto(0,0)
+        self.write("GAME OVER", align=ALIGNMENT, font=FONT)
     
     def increase_score(self):
         self.clear()
