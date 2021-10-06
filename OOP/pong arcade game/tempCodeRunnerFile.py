@@ -1,1 +1,1 @@
-screen.update()
+ball = Ball()
