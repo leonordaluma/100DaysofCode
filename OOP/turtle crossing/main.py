@@ -20,5 +20,20 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    car.create_cars()
+    car.create_car()
     car.move_cars()
+    score = Scoreboard()
+
+    for c in car.all_cars:
+        if c.distance(player) < 20:
+            game_is_on = False
+            score.game_over()
+    
+
+    if player.is_at_finish_line():
+        player.go_to_start()
+        car.level_up()
+        score.increment_score()
+
+
+screen.exitonclick()
