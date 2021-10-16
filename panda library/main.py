@@ -1,9 +1,14 @@
 import pandas
 
+data = pandas.read_csv("census.csv")
+black = data[data["Primary Fur Color"]  == "Black"]
+grey = data[data["Primary Fur Color"]  == "Gray"]
+red = data[data["Primary Fur Color"]  == "Cinnamon"]
+
 data_dict = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
+    "Fur Color": ["grey", "red", "black"],
+    "Count": [len(grey), len(red), len(black)]
 }
 
-data = pandas.DataFrame(data_dict)
-data.to_csv("new_data.csv")
+squirrel_data = pandas.DataFrame(data_dict)
+squirrel_data.to_csv("squirrel_count.csv")
