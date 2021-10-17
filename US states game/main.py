@@ -23,15 +23,15 @@ def write_guess(guess):
     y_cor = int(sf.y)
     st.goto(x_cor, y_cor)
     st.write(guess)
-    correct_guesses.append(guess)
+    
 
-is_game_on = True
-while is_game_on:
-    guess = screen.textinput(title=f"{score}/{total_states} States Correct", prompt="What's another state's name?").title()
+while len(correct_guesses) < 50:
+    guess = screen.textinput(title=f"{len(correct_guesses)}/{total_states} States Correct", prompt="What's another state's name?").title()
     for s in data.state:
         if guess == s:
-            write_guess(guess)
-            score += 1
+            if guess not in correct_guesses:
+                correct_guesses.append(guess)
+                write_guess(guess)
             
             
 
