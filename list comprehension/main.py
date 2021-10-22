@@ -1,12 +1,16 @@
-weather_c = {
-    "Monday": 12,
-    "Tuesday": 14,
-    "Wednesday": 15,
-    "Thursday": 14,
-    "Friday": 21,
-    "Saturday": 22,
-    "Sunday": 24,
+student_dict = {
+    "student": ["Angela", "James", "Lily"],
+    "score": [56, 76, 98]
 }
 
-weather_f = {day:(temp * 9/5) + 32 for (day, temp) in weather_c.items()}
-print(weather_f)
+import pandas
+
+student_df = pandas.DataFrame(student_dict)
+
+# for (key, value) in student_df.items():
+#     print(key)
+
+
+# Loop through rows of a data frame
+for (index, row) in student_df.iterrows():
+    print(row)
