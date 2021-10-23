@@ -1,16 +1,7 @@
-student_dict = {
-    "student": ["Angela", "James", "Lily"],
-    "score": [56, 76, 98]
-}
-
 import pandas
 
-student_df = pandas.DataFrame(student_dict)
+alphabets = pandas.read_csv("nato_phonetic_alphabet.csv")
+# print(type(alphabets))
 
-# for (key, value) in student_df.items():
-#     print(key)
-
-
-# Loop through rows of a data frame
-for (index, row) in student_df.iterrows():
-    print(row)
+nato_alphabets_dict = {row.letter: row.code for (index, row) in alphabets.iterrows()}
+print(nato_alphabets_dict)
