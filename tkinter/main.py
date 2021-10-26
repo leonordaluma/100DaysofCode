@@ -49,7 +49,15 @@ check_state = IntVar()
 checkbutton = Checkbutton(text="Is On?", variable=check_state, command=checkbutton_used)
 checkbutton.pack()
 
+# Radiobutton
+def radiobutton_value():
+    print(radio_state.get())
 
+radio_state = IntVar()
+r_btn1 = Radiobutton(text="True", value=1, variable=radio_state, command=radiobutton_value)
+r_btn2 = Radiobutton(text="False", value=2, variable=radio_state, command=radiobutton_value)
+r_btn1.pack()
+r_btn2.pack()
 
 
 
