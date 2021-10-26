@@ -1,31 +1,34 @@
 from tkinter import *
 
-def button_clicked():
-    new_text = entry.get()
-    my_label.config(text=new_text)
+def miles_to_km():
+    miles_value = float(miles.get())
+    km_result = round(miles_value * 1.609)
+    km_value.config(text=f"{km_result}")
 
 window = Tk()
-window.title("GUI")
-window.minsize(width=500, height=300)
-window.config(padx=50, pady=50)
+window.title("Mile to KM converter")
+window.minsize(width=200, height=100)
+window.config(padx=30, pady=20)
 
-# label 
-my_label = Label(text="Label", font=("Poppins", 14))
-my_label.grid(column=0, row=0)
+miles = Entry(width=10)
+miles.insert(END, "0")
+miles.grid(column=1,row=0)
 
-my_label["text"] = "New Label"
-my_label.config(text="New Text")
+miles_label = Label(text="Miles")
+miles_label.grid(column=2, row=0)
 
-# buttons
+is_equal_to = Label(text="is equal to")
+is_equal_to.grid(column=0, row=1)
 
-button = Button(text="Click Me", command=button_clicked)
-button.grid(column=1, row=1)
-button.config(padx=100, pady=20)
+km_value = Label(text="0")
+km_value.grid(column=1, row=1)
 
-button2 = Button(text="New Button")
-button2.grid(column=2, row=0)
-# entry
-entry = Entry(width=10)
-entry.grid(column=3, row=2)
+km = Label(text="KM")
+km.grid(column=2, row=1)
+
+calculate = Button(text="Calculate", command=miles_to_km)
+calculate.grid(column=1, row=2)
+
+
 
 window.mainloop()
