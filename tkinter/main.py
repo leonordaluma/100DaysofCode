@@ -42,6 +42,13 @@ spinbox.pack()
 scale = Scale(from_=0, to=20)
 scale.pack()
 
+# Checkbutton
+def checkbutton_used():
+    print(check_state.get())
+check_state = IntVar()
+checkbutton = Checkbutton(text="Is On?", variable=check_state, command=checkbutton_used)
+checkbutton.pack()
+
 
 
 
