@@ -59,6 +59,17 @@ r_btn2 = Radiobutton(text="False", value=2, variable=radio_state, command=radiob
 r_btn1.pack()
 r_btn2.pack()
 
+# Listbox
+def listbox_used(event):
+    print(listbox.get(listbox.curselection()))
+
+listbox = Listbox(height=3)
+cats = ["Grey", "Harley", "Mufasa"]
+for c in cats:
+    listbox.insert(cats.index(c), c)
+listbox.bind("<<ListboxSelect>>", listbox_used)
+listbox.pack()
+
 
 
 
