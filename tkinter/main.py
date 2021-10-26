@@ -28,7 +28,16 @@ entry.pack()
 text = Text(height=5, width=30)
 text.focus()
 text.insert(END,"this is a text")
+# line 1 character 0
+print(text.get("1.0", END))
 text.pack()
+
+# Spinbox
+def spinbox_value():
+    print(spinbox.get())
+spinbox = Spinbox(from_= 0, to=10, width=5, command=spinbox_value)
+spinbox.pack()
+
 
 
 
