@@ -13,16 +13,27 @@ my_label.config(text="New Text")
 
 # buttons
 def button_clicked():
-    new_text = input_text.get()
+    new_text = entry.get()
     my_label.config(text=new_text)
 
 button = Button(text="Click Me", command=button_clicked)
 button.pack()
 
 # entry
+entry = Entry(width=30)
+entry.insert(END, string="Some text to begin with")
+entry.pack()
 
-input_text = Entry(width=10)
-input_text.pack()
+# textbox
+text = Text(height=5, width=30)
+text.focus()
+text.insert(END,"this is a text")
+text.pack()
+
+
+
+
+
 
 
 
