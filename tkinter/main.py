@@ -2,7 +2,7 @@ from tkinter import *
 
 window = Tk()
 window.title("GUI")
-window.minsize(width=500, height=300)
+window.minsize(width=500, height=500)
 
 # label 
 my_label = Label(text="Label", font=("Poppins", 14))
@@ -38,6 +38,9 @@ def spinbox_value():
 spinbox = Spinbox(from_= 0, to=10, width=5, command=spinbox_value)
 spinbox.pack()
 
+# Scale
+scale = Scale(from_=0, to=20)
+scale.pack()
 
 
 
