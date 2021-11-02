@@ -10,15 +10,23 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
-# ---------------------------- TIMER RESET ------------------------------- # 
+t = None
 
+
+# ---------------------------- TIMER RESET ------------------------------- # 
+def reset_timer():
+    global marks
+    window.after_cancel(t)
+    canvas.itemconfig(timer_text, text="00:00")
+    timer.config(text="Timer")
+    check.config(text="")
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_timer():
     global reps
     reps += 1
-    work_sec = WORK_MIN
-    short_break_sec = SHORT_BREAK_MIN 
-    long_break_sec = LONG_BREAK_MIN
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
 
     if reps % 8 == 0:
         timer.config(text="Break", fg=RED)
@@ -38,9 +46,15 @@ def count_down(count):
         count_sec = f"0{count_sec}"
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        global t
+        t = window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_session = math.floor(reps/2)
+        for _ in range(work_session):
+            marks += "X"
+        check.config(text=marks)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -60,10 +74,10 @@ timer.grid(column=1, row=0)
 start = Button(text="Start", highlightthickness=0, command=start_timer)
 start.grid(column=0, row=2)
 
-check = Label(text="X", fg=GREEN, bg=YELLOW, highlightthickness=0)
+check = Label(text="", fg=GREEN, bg=YELLOW, highlightthickness=0)
 check.grid(column=1, row=3)
 
-reset = Button(text="End", highlightthickness=0)
+reset = Button(text="End", highlightthickness=0, command=reset_timer)
 reset.grid(column=2, row=2)
 
 
