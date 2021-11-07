@@ -1,30 +1,29 @@
-import tkinter as tk
+import random
 
-def show_entry_fields():
-    print("First Name: %s\nLast Name: %s" % (e1.get(), e2.get()))
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-master = tk.Tk()
-tk.Label(master, 
-         text="First Name").grid(row=0)
-tk.Label(master, 
-         text="Last Name").grid(row=1)
+nr_letters = random.randint(8, 10)
+nr_symbols = random.randint(2, 4)
+nr_numbers = random.randint(2, 4)
 
-e1 = tk.Entry(master)
-e2 = tk.Entry(master)
 
-e1.grid(row=0, column=1)
-e2.grid(row=1, column=1)
+password_list = [random.choice(letters) for _ in range(nr_letters)]
+password_list += [random.choice(symbols) for _ in range(nr_symbols)]
+password_list += [random.choice(numbers) for _ in range(nr_numbers)]
 
-tk.Button(master, 
-          text='Quit', 
-          command=master.quit).grid(row=3, 
-                                    column=0, 
-                                    sticky=tk.W, 
-                                    pady=4)
-tk.Button(master, 
-          text='Show', command=show_entry_fields).grid(row=3, 
-                                                       column=1, 
-                                                       sticky=tk.W, 
-                                                       pady=4)
+# for char in range(nr_letters):
+#   password_list.append(random.choice(letters))
 
-tk.mainloop()
+# for char in range(nr_symbols):
+#   password_list += random.choice(symbols)
+
+# for char in range(nr_numbers):
+#   password_list += random.choice(numbers)
+
+random.shuffle(password_list)
+
+password = "".join(password_list)
+
+print(f"Your password is: {password}")
