@@ -1,16 +1,30 @@
-from tkinter import *
+import tkinter as tk
 
-window = Tk()
+def show_entry_fields():
+    print("First Name: %s\nLast Name: %s" % (e1.get(), e2.get()))
 
+master = tk.Tk()
+tk.Label(master, 
+         text="First Name").grid(row=0)
+tk.Label(master, 
+         text="Last Name").grid(row=1)
 
-r = Label(bg="red", width=20, height=5)
-r.grid(row=0, column=0)
+e1 = tk.Entry(master)
+e2 = tk.Entry(master)
 
-g = Label(bg="green", width=20, height=5)
-g.grid(row=1, column=1)
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
 
-b = Label(bg="blue", width=40, height=5)
-b.grid(row=2, column=0, columnspan=2)
+tk.Button(master, 
+          text='Quit', 
+          command=master.quit).grid(row=3, 
+                                    column=0, 
+                                    sticky=tk.W, 
+                                    pady=4)
+tk.Button(master, 
+          text='Show', command=show_entry_fields).grid(row=3, 
+                                                       column=1, 
+                                                       sticky=tk.W, 
+                                                       pady=4)
 
-
-window.mainloop()
+tk.mainloop()
