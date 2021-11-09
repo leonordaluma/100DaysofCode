@@ -1,24 +1,15 @@
-# try:
-#     file = open("some_file.txt")
-#     a_dict = {"key":"value"}
-#     print(a_dict["key"])
-# except FileNotFoundError:
-#     file = open("some_file.txt", "w")
-#     file.write("Something")
-#     # print("File does not exist.")
-# except KeyError as error_message:
-#     print(f"{error_message} does not exist.")
-# else:
-#     content = file.read()
-#     print(content)
-# finally:
-#     file.close()
-#     print("File was closed.")
+fruits = ["Appke", "Pear", "Orange"]
 
-height = float(input("Enter your height: "))
-weight = int(input("Enter your weight: "))
-if height > 3:
-    raise ValueError("Tall enough to be human.")
 
-bmi = weight / height ** 2
-print(bmi)
+def make_pie(index):
+    try:
+        fruit = fruits[index]
+    except IndexError:
+        print("Fruit pie")
+    else:
+        print(fruit + " pie")
+
+
+
+make_pie(4)
+make_pie(2)
