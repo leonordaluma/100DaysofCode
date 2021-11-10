@@ -55,12 +55,14 @@ def find_password():
         
         with open("data.json", "r") as file:
             data = json.load(file)
-            for val in data:
-                if user_text == val:
-                    website = data[val]
-                    email = website["email"]
-                    password = website["password"]
-                    messagebox.showinfo(title=user_text, message=f"Email: {email} \nPassword: {password}")
+            if user_text in data:
+                website = data[user_text]
+                email = website["email"]
+                password = website["password"]
+                messagebox.showinfo(title=user_text, message=f"Email: {email} \nPassword: {password}")
+            else:
+                messagebox.showinfo(title=user_text, message="No details for the website exists")
+                website_entry.delete(0,END)
         
         
         
