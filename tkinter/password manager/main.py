@@ -49,6 +49,21 @@ def save_to_file():
         finally:        
             website_entry.delete(0,END)
             password_entry.delete(0,END)
+        # ---------------------------- SEARCH ------------------------------- #
+def find_password():
+        user_text = website_entry.get()
+        
+        with open("data.json", "r") as file:
+            data = json.load(file)
+            for val in data:
+                if user_text == val:
+                    website = data[val]
+                    email = website["email"]
+                    password = website["password"]
+                    messagebox.showinfo(title=user_text, message=f"Email: {email} \nPassword: {password}")
+        
+        
+        
         # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -62,27 +77,26 @@ canvas.grid(row=0, column=1)
 
 website_text = Label(text="Website: ")
 website_text.grid(row=1, column=0)
-
-website_entry = Entry(width=35)
-website_entry.focus()
-website_entry.grid(row=1, column=1, columnspan=3)
-
 email_text = Label(text="Email/Username:")
 email_text.grid(row=2, column=0)
-
-email_entry = Entry(width=35)
-email_entry.insert(END, "leonordaluma@gmail.com")
-email_entry.grid(row=2, column=1, columnspan=3)
-
 password_text = Label(text="Password: ")
 password_text.grid(row=3, column=0)
 
-password_entry = Entry(width=21)
+
+website_entry = Entry(width=24)
+website_entry.focus()
+website_entry.grid(row=1, column=1)
+email_entry = Entry(width=42)
+email_entry.insert(END, "leonordaluma@gmail.com")
+email_entry.grid(row=2, column=1, columnspan=2)
+password_entry = Entry(width=24)
 password_entry.grid(row=3, column=1)
 
-generate_btn = Button(text="Generate Password", command=generate_password)
-generate_btn.grid(row=3, column=2)
 
+search_btn = Button(text="Search", command=find_password)
+search_btn.grid(row=1, column=2)
+generate_btn = Button(text="Generate Password",command=generate_password)
+generate_btn.grid(row=3, column=2)
 add_btn = Button(text="Add", width=36, command=save_to_file)
 add_btn.grid(row=4, column=1, columnspan=2)
 
