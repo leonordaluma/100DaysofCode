@@ -49,12 +49,17 @@ def save_to_file():
         finally:        
             website_entry.delete(0,END)
             password_entry.delete(0,END)
-        # ---------------------------- SEARCH ------------------------------- #
+            
+        # ---------------------------- FIND PASSWORD------------------------------- #
 def find_password():
         user_text = website_entry.get()
         
-        with open("data.json", "r") as file:
-            data = json.load(file)
+        try:
+            with open("data.json", "r") as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            messagebox.showerror(title="Ops", message="No Data File Found")
+        else:
             if user_text in data:
                 website = data[user_text]
                 email = website["email"]
@@ -65,6 +70,7 @@ def find_password():
                 website_entry.delete(0,END)
         
         
+    
         
         # ---------------------------- UI SETUP ------------------------------- #
 
