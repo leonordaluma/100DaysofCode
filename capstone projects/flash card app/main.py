@@ -7,15 +7,20 @@ TITLE = ("Arial", 18, "italic")
 WORD = ("Arial", 30, "bold")
 
 
-def generate_word():
+def select_random_word():
     data = pd.read_csv("./data/french_words.csv")
     data_dict = data.to_dict(orient='records')
-    random_word = random.choice(data_dict)
+    return random.choice(data_dict)
+    
+
+def generate_word():
+    random_word = select_random_word()
     french_word = random_word["French"]
     # english_word = random_word["English"]
     canvas.itemconfig(french_text, text=f"{french_word}")
 
 
+word = select_random_word()
 window = Tk()
 window.title("Flash Card App")
 window.config(padx=50, pady=0, bg=BACKGROUND_COLOR)
@@ -24,7 +29,7 @@ canvas = Canvas(width=800, height=640, bg=BACKGROUND_COLOR, highlightthickness=0
 card_img = PhotoImage(file="./images/card_front.png")
 canvas.create_image(400,300, image=card_img)
 french_text = canvas.create_text(400, 200, text="French", font=TITLE)
-french_text = canvas.create_text(400, 300, text=f"", font=WORD)
+french_text = canvas.create_text(400, 300, text=f"{word['French']}", font=WORD)
 canvas.grid(column=0, row=0, columnspan=2)
 
 
