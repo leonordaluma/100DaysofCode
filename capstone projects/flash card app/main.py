@@ -6,16 +6,14 @@ BACKGROUND_COLOR = "#B1DDC6"
 TITLE = ("Arial", 18, "italic")
 WORD = ("Arial", 30, "bold")
 FLIP_SEC = 3
-t = None
-
 
 def select_random_word():
     data = pd.read_csv("./data/french_words.csv")
     data_dict = data.to_dict(orient='records')
     return random.choice(data_dict)
-    
 
-def generate_word():
+def display_word():
+    global word
     window.after_cancel(window)
     word = select_random_word()
     canvas.itemconfig(canvas_img, image=card_img)
@@ -28,8 +26,6 @@ def flip_card():
     canvas.itemconfig(canvas_title, text="English", fill="white")
     canvas.itemconfig(french_word, text=f"{word['English']}", fill="white")
     
-
-
 def delay():
     # delay_time = FLIP_SEC * 60
     window.after(3000, flip_card)
@@ -52,11 +48,11 @@ canvas.grid(column=0, row=0, columnspan=2)
 
 
 wrong_image = PhotoImage(file="./images/wrong.png")
-wrong_btn = Button(image=wrong_image, highlightthickness=0, command=generate_word)
+wrong_btn = Button(image=wrong_image, highlightthickness=0, command=display_word)
 wrong_btn.grid(column=0, row=1)
 
 right_image = PhotoImage(file="./images/right.png")
-right_btn = Button(image=right_image, highlightthickness=0, command=generate_word)
+right_btn = Button(image=right_image, highlightthickness=0, command=display_word)
 right_btn.grid(column=1, row=1)
 
 
