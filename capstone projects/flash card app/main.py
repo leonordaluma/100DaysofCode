@@ -8,9 +8,7 @@ WORD = ("Arial", 30, "bold")
 FLIP_SEC = 3
 
 def select_random_word():
-    return random.choice(data_dict)
-    
-    
+    return random.choice(data_dict)    
 
 def right_button():
     data_dict.remove(word)
@@ -18,9 +16,9 @@ def right_button():
 
 def wrong_button():
     words_to_learn.append(word)    
+    display_word()
     df = pd.DataFrame(words_to_learn)
     df.to_csv("words_to_learn.csv", index=False)
-    display_word()
     
 
 def display_word():
@@ -42,9 +40,14 @@ def delay():
     window.after(3000, flip_card)
     
 
+try:
+    data = pd.read_csv("words_to_learn.csv")
+except FileNotFoundError:
+    data = pd.read_csv("./data/french_words.csv")
+finally:
+    data_dict = data.to_dict(orient='records')
+    print(data_dict)
 
-data = pd.read_csv("./data/french_words.csv")
-data_dict = data.to_dict(orient='records')
 words_to_learn = []
 word = select_random_word()
 window = Tk()
