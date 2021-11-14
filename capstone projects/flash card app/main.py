@@ -8,9 +8,20 @@ WORD = ("Arial", 30, "bold")
 FLIP_SEC = 3
 
 def select_random_word():
-    data = pd.read_csv("./data/french_words.csv")
-    data_dict = data.to_dict(orient='records')
     return random.choice(data_dict)
+    
+    
+
+def right_button():
+    data_dict.remove(word)
+    display_word()
+
+def wrong_button():
+    words_to_learn.append(word)    
+    df = pd.DataFrame(words_to_learn)
+    df.to_csv("words_to_learn.csv", index=False)
+    display_word()
+    
 
 def display_word():
     global word
@@ -31,6 +42,10 @@ def delay():
     window.after(3000, flip_card)
     
 
+
+data = pd.read_csv("./data/french_words.csv")
+data_dict = data.to_dict(orient='records')
+words_to_learn = []
 word = select_random_word()
 window = Tk()
 window.title("Flash Card App")
@@ -48,11 +63,11 @@ canvas.grid(column=0, row=0, columnspan=2)
 
 
 wrong_image = PhotoImage(file="./images/wrong.png")
-wrong_btn = Button(image=wrong_image, highlightthickness=0, command=display_word)
+wrong_btn = Button(image=wrong_image, highlightthickness=0, command=wrong_button)
 wrong_btn.grid(column=0, row=1)
 
 right_image = PhotoImage(file="./images/right.png")
-right_btn = Button(image=right_image, highlightthickness=0, command=display_word)
+right_btn = Button(image=right_image, highlightthickness=0, command=right_button)
 right_btn.grid(column=1, row=1)
 
 
