@@ -5,7 +5,6 @@ import random
 BACKGROUND_COLOR = "#B1DDC6"
 TITLE = ("Arial", 18, "italic")
 WORD = ("Arial", 30, "bold")
-FLIP_SEC = 3
 
 def select_random_word():
     return random.choice(data_dict)    
@@ -36,10 +35,8 @@ def flip_card():
     canvas.itemconfig(french_word, text=f"{word['English']}", fill="white")
     
 def delay():
-    # delay_time = FLIP_SEC * 60
     window.after(3000, flip_card)
     
-
 try:
     data = pd.read_csv("words_to_learn.csv")
 except FileNotFoundError:
@@ -72,8 +69,6 @@ wrong_btn.grid(column=0, row=1)
 right_image = PhotoImage(file="./images/right.png")
 right_btn = Button(image=right_image, highlightthickness=0, command=right_button)
 right_btn.grid(column=1, row=1)
-
-
 
 
 window.mainloop()
