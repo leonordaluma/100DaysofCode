@@ -18,6 +18,15 @@ class QuizInterface:
         self.score_text = Label(text=f"Score: {self.score}", bg=THEME_COLOR, fg="white")
         self.score_text.grid(row=0, column=1)
         
+        self.true_image = PhotoImage(file="./images/true.png")
+        self.false_image = PhotoImage(file="./images/false.png")
+        
+        self.true_button = Button(image=self.true_image, highlightthickness=0, bg=THEME_COLOR)
+        self.true_button.grid(row=2, column=0)
+        
+        self.false_button = Button(image=self.false_image, highlightthickness=0, bg=THEME_COLOR)
+        self.false_button.grid(row=2, column=1)
+        
         
         self.window.mainloop()
 
