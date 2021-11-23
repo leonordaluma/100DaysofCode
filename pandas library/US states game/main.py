@@ -32,7 +32,7 @@ while len(correct_guesses) < 50:
         state_data = [s for s in data.state if s not in correct_guesses]
         df = pandas.DataFrame(state_data)
         df.to_csv("learn.csv")
-        breakS
+        break
 
     for s in data.state:
         if guess == s:
