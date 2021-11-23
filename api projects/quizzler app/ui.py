@@ -37,9 +37,14 @@ class QuizInterface:
 
     def get_question(self):
         self.canvas.config(bg="white")
-        self.score_text.config(self.score_text, text=f"Score: {self.quiz.score}")
-        question = self.quiz.next_question()
-        self.canvas.itemconfig(self.q_text, text=question)
+        if self.quiz.still_has_questions():
+            self.score_text.config(self.score_text, text=f"Score: {self.quiz.score}")
+            question = self.quiz.next_question()
+            self.canvas.itemconfig(self.q_text, text=question)
+        else:
+            self.canvas.itemconfig(self.q_text, text=f"You've completed the game!\n Your final score is {self.quiz.score}/{self.quiz.question_number}")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
     def answer_true(self):
         self.get_feedback(self.quiz.check_answer("True"))
