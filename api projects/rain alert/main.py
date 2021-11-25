@@ -8,7 +8,7 @@ parameters = {
     "lat" : LAT,
     "lon": LONG,
     "appid": API_KEY,
-    
+    "exclude": "current,minutely,daily,alerts",
 }
 
 
@@ -16,4 +16,4 @@ response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", p
 response.raise_for_status()
 data = response.json()
 forty_eight_hours = data["hourly"][47]
-print(data["hourly"][47])
+print(data)
