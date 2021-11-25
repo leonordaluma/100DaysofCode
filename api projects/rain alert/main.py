@@ -6,7 +6,7 @@ LONG = 120.984222
 
 parameters = {
     "lat" : LAT,
-    "long": LONG,
+    "lon": LONG,
     "appid": API_KEY,
     
 }
@@ -15,4 +15,5 @@ parameters = {
 response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
 response.raise_for_status()
 data = response.json()
-print(data["current"])
+forty_eight_hours = data["hourly"][47]
+print(data["hourly"][47])
