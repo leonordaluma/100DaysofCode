@@ -1,5 +1,6 @@
-from api_key import API_KEY
+from api_key import API_KEY, account_sid, auth_token
 import requests
+from twilio.rest import Client
 
 LAT = 8.001110
 LONG = 124.284821
