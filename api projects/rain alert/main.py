@@ -1,19 +1,21 @@
+from twilio.rest import Client
 from api_key import API_KEY, account_sid, auth_token
 import requests
-from twilio.rest import Client
 
 LAT = 8.001110
 LONG = 124.284821
 
+
 parameters = {
-    "lat" : LAT,
+    "lat": LAT,
     "lon": LONG,
     "appid": API_KEY,
     "exclude": "current,minutely,daily,alerts",
 }
 
 
-response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
+response = requests.get(
+    url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
 response.raise_for_status()
 data = response.json()
 weather_data = data["hourly"][:12]
@@ -26,7 +28,12 @@ for hour_data in weather_data:
         will_rain = True
 
 if will_rain:
-    print("Bring an umbrella")
-else:
-    print("You're good to go.")
-        
+    client = Client(account_sid, auth_token)
+    message = client.messages \
+        .create(
+            body="Bring an umbrella",
+            from_='+18126498393',
+            to='+639076469459'
+        )
+
+print(message.status)
