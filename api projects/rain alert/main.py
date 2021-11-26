@@ -7,7 +7,7 @@ import os
 LAT = 8.001110
 LONG = 124.284821
 
-account_sid = account_sid
+account_sid = account_sid 
 auth_token = auth_token
 
 parameters = {
