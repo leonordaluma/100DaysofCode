@@ -1,7 +1,8 @@
-from twilio.rest import Client
-import os
 from api_key import API_KEY, account_sid, auth_token
+from twilio.rest import Client
+from twilio.http.http_client import TwilioHttpClient
 import requests
+import os
 
 LAT = 8.001110
 LONG = 124.284821
@@ -22,7 +23,6 @@ response = requests.get(
 response.raise_for_status()
 data = response.json()
 weather_data = data["hourly"][:12]
-print(weather_data)
 
 
 will_rain = False
@@ -32,8 +32,10 @@ for hour_data in weather_data:
         will_rain = True
 
 if will_rain:
-    print("Bring umbrella")
-    client = Client(account_sid, auth_token)
+    proxy_client = TwilioHttpClient()
+    proxy_client.session.proxies = {'https': os.environ['https_proxy']}
+
+    client = Client(account_sid, auth_token, http_client=proxy_client)
     message = client.messages \
         .create(
             body="Bring an umbrella",
