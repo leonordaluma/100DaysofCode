@@ -18,17 +18,14 @@ data = response.json()
 # print(data)
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-# days = data["Time Series (Daily)"][:2]
-# for dt in days:
-#     print(dt["close"])
+time_series = data["Time Series (Daily)"]
+days_list = [day for day, val in time_series.items()]
+yesterday = time_series[days_list[0]]
+day_before = time_series[days_list[1]]
 
-today = datetime.now()
-yesterday = today - timedelta(1)
-# day_before = yesterday - timedelta(1)
-day_before = today - timedelta(2)
-print(today)
-print(yesterday)
-print(day_before)
+current_stock_price = float(yesterday['4. close'])
+previous_stock_price = float(day_before['4. close'])
+print(current_stock_price, previous_stock_price)
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
