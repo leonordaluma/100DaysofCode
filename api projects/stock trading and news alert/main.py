@@ -3,20 +3,23 @@ from api_key import AV_API_KEY
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 API_KEY = AV_API_KEY
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+
+url = "https://www.alphavantage.co/query"
 parameters = {
     "function" : "TIME_SERIES_DAILY",
     "symbol": STOCK,
     "apikey": API_KEY,
     
 }
-url = "https://www.alphavantage.co/query"
 response = requests.get(url=url, params=parameters)
 response.raise_for_status()
 data = response.json()
-print(data)
-
+# print(data)
+## STEP 1: Use https://www.alphavantage.co
+# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+days = data["Time Series (Daily)"][:2]
+for dt in days:
+    print(dt["close"])
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
