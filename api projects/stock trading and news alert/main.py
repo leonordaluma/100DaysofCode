@@ -24,8 +24,11 @@ data = response.json()
 
 today = datetime.now()
 yesterday = today - timedelta(1)
+# day_before = yesterday - timedelta(1)
+day_before = today - timedelta(2)
 print(today)
 print(yesterday)
+print(day_before)
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
