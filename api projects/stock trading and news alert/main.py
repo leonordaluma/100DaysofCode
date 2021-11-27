@@ -1,5 +1,6 @@
-import requests
 from api_key import AV_API_KEY
+from datetime import datetime, time, timedelta
+import requests
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 API_KEY = AV_API_KEY
@@ -17,10 +18,14 @@ data = response.json()
 # print(data)
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-days = data["Time Series (Daily)"][:2]
-for dt in days:
-    print(dt["close"])
+# days = data["Time Series (Daily)"][:2]
+# for dt in days:
+#     print(dt["close"])
 
+today = datetime.now()
+yesterday = today - timedelta(1)
+print(today)
+print(yesterday)
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
