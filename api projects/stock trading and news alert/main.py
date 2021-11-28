@@ -1,4 +1,4 @@
-from api_key import AV_API_KEY
+from api_key import AV_API_KEY, News_API_KEY
 from datetime import datetime, time, timedelta
 import math
 import requests
@@ -36,6 +36,7 @@ else:
     print("The stock price hasn't increased/decreased by 5%")
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
