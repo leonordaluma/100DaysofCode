@@ -4,25 +4,35 @@ import math
 import requests
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-API_KEY = AV_API_KEY
+STOCK_API_KEY = AV_API_KEY
+NEWS_API_KEY = News_API_KEY
 
 def get_stock_price():
     url = "https://www.alphavantage.co/query"
     parameters = {
         "function" : "TIME_SERIES_DAILY",
         "symbol": STOCK,
-        "apikey": API_KEY,
+        "apikey": STOCK_API_KEY,
         
     }
     response = requests.get(url=url, params=parameters)
     response.raise_for_status()
     return response.json()
 
-data = get_stock_price()
+def get_news():
+    url = "https://newsapi.org/v2/everything"
+    parameters = {
+        "qInTitle": COMPANY_NAME,
+        "apiKey": NEWS_API_KEY,
+    }
+    response = requests.get(url=url, params=parameters)
+    response.raise_for_status()
+    return response.json()
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-time_series = data["Time Series (Daily)"]
+stock_data = get_stock_price()
+time_series = stock_data["Time Series (Daily)"]
 days_list = [day for day, val in time_series.items()]
 yesterday = time_series[days_list[0]]
 day_before = time_series[days_list[27]]
@@ -41,6 +51,10 @@ else:
     
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+news_data = get_news()
+articles = news_data["articles"]
+news_pieces = articles[:3]
+print(news_pieces[1])
 
 
 ## STEP 3: Use https://www.twilio.com
