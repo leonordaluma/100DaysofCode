@@ -22,14 +22,18 @@ data = response.json()
 time_series = data["Time Series (Daily)"]
 days_list = [day for day, val in time_series.items()]
 yesterday = time_series[days_list[0]]
-day_before = time_series[days_list[1]]
+day_before = time_series[days_list[27]]
 
 current_stock_price = float(yesterday['4. close'])
 previous_stock_price = float(day_before['4. close'])
 print(f"previous: {previous_stock_price}")
 print(f"current: {current_stock_price}")
-five_percent = current_stock_price * 0.05
-print(round(five_percent, 3))
+five_percent = round(previous_stock_price * 0.05, 3)
+print(five_percent)
+if current_stock_price <= previous_stock_price - five_percent or current_stock_price >= previous_stock_price + five_percent:
+    print("Get News")
+else:
+    print("The stock price hasn't increased/decreased by 5%")
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
