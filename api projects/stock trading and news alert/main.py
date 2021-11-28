@@ -52,9 +52,10 @@ else:
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 news_data = get_news()
-articles = news_data["articles"]
-news_pieces = articles[:3]
-print(news_pieces[1])
+articles = news_data["articles"][:3]
+for a in articles:
+    print(f"Headline: {a['title']}")
+    print(f"Brief: {a['description']}\n")
 
 
 ## STEP 3: Use https://www.twilio.com
