@@ -43,32 +43,29 @@ day_before = time_series[days_list[27]]
 
 current_stock_price = float(yesterday['4. close'])
 previous_stock_price = float(day_before['4. close'])
-print(f"previous: {previous_stock_price}")
-print(f"current: {current_stock_price}")
 five_percent = round(previous_stock_price * 0.05, 3)
-print(five_percent)
 
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+client = Client(account_sid, auth_token)
 if current_stock_price <= previous_stock_price - five_percent or current_stock_price >= previous_stock_price + five_percent:
     news_data = get_news()
     articles = news_data["articles"][:3]
-    for a in articles:
-        print(f"Headline: {a['title']}")
-        print(f"Brief: {a['description']}\n")
-else:
-    print("The stock price hasn't increased/decreased by 5%")
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
-client = Client(account_sid, auth_token)
-message = client.messages \
-    .create(
-        body="",
-        from_="+18126498393",
-        to="+639076469459",
-    )
+    for a in articles:
+        message = client.messages \
+            .create(
+                body=f"TSLA \nHeadline: {a['title']} \nBrief: {a['description']}\n",
+                from_="+18126498393",
+                to="+639076469459",
+            )
+        print(message.status)
+else:
+    print("The stock price hasn't increased/decreased by 5%")
+
 
 
 #Optional: Format the SMS message like this: 
