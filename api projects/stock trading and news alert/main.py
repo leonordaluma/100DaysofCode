@@ -44,18 +44,18 @@ print(f"current: {current_stock_price}")
 five_percent = round(previous_stock_price * 0.05, 3)
 print(five_percent)
 if current_stock_price <= previous_stock_price - five_percent or current_stock_price >= previous_stock_price + five_percent:
-    print("Get News")
+    news_data = get_news()
+    articles = news_data["articles"][:3]
+    for a in articles:
+        print(f"Headline: {a['title']}")
+        print(f"Brief: {a['description']}\n")
 else:
     print("The stock price hasn't increased/decreased by 5%")
     
     
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
-news_data = get_news()
-articles = news_data["articles"][:3]
-for a in articles:
-    print(f"Headline: {a['title']}")
-    print(f"Brief: {a['description']}\n")
+
 
 
 ## STEP 3: Use https://www.twilio.com
