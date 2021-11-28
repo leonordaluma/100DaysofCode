@@ -58,7 +58,7 @@ if current_stock_price <= previous_stock_price - five_percent or current_stock_p
     for a in articles:
         message = client.messages \
             .create(
-                body=f"TSLA \nHeadline: {a['title']} \nBrief: {a['description']}\n",
+                body=f"\nTSLA \nHeadline: {a['title']} \nBrief: {a['description']}\n",
                 from_="+18126498393",
                 to="+639076469459",
             )
