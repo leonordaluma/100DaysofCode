@@ -1,4 +1,5 @@
 from keys import token
+from datetime import datetime
 import requests
 
 
@@ -32,12 +33,14 @@ graph_parameters = {
 
 # r = requests.post(url=graphs_url, json=graph_parameters, headers=headers)
 # print(r.text)
+today = datetime.now()
+print(today.strftime("%Y%m%d"))
 
 pixel = f"{graphs_url}/{ID}"
 pixel_parameters = {
-    "date": "20211122",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "51"
 }
 
-r = requests.post(url=pixel, json=pixel_parameters, headers=headers)
-print(r.text)
+# r = requests.post(url=pixel, json=pixel_parameters, headers=headers)
+# print(r.text)
