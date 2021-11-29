@@ -36,13 +36,14 @@ graph_parameters = {
 today = datetime.now()
 formatted_today = today.strftime("%Y%m%d")
 
-pixel = f"{graphs_url}/{ID}/{formatted_today}"
+pixel = f"{graphs_url}/{ID}"
 pixel_parameters = {
-    "quantity": "2"
+    "date": formatted_today,
+    "quantity": input("How many pages have you read today? "),
 }
 
-# r = requests.put(url=pixel, json=pixel_parameters, headers=headers)
-r = requests.delete(url=pixel, headers=headers)
+r = requests.post(url=pixel, json=pixel_parameters, headers=headers)
+# r = requests.delete(url=pixel, headers=headers)
 print(r.text)
 
 
