@@ -41,6 +41,8 @@ pixel_parameters = {
     "quantity": "2"
 }
 
-r = requests.put(url=pixel, json=pixel_parameters, headers=headers)
+# r = requests.put(url=pixel, json=pixel_parameters, headers=headers)
+r = requests.delete(url=pixel, headers=headers)
 print(r.text)
+
 
