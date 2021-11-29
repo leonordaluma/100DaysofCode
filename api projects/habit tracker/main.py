@@ -30,3 +30,5 @@ headers = {
     "X-USER-TOKEN" : TOKEN
 }
 
+r = requests.post(url=graphs_url, json=graph_parameters, headers=headers)
+print(r.text)
