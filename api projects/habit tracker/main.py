@@ -34,13 +34,13 @@ graph_parameters = {
 # r = requests.post(url=graphs_url, json=graph_parameters, headers=headers)
 # print(r.text)
 today = datetime.now()
-print(today.strftime("%Y%m%d"))
+formatted_today = today.strftime("%Y%m%d")
 
-pixel = f"{graphs_url}/{ID}"
+pixel = f"{graphs_url}/{ID}/{formatted_today}"
 pixel_parameters = {
-    "date": today.strftime("%Y%m%d"),
-    "quantity": "51"
+    "quantity": "2"
 }
 
-# r = requests.post(url=pixel, json=pixel_parameters, headers=headers)
-# print(r.text)
+r = requests.put(url=pixel, json=pixel_parameters, headers=headers)
+print(r.text)
+
