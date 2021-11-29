@@ -4,6 +4,10 @@ import requests
 
 TOKEN = token
 USERNAME = "stormpo0per"
+ID = "mygraph"
+headers = {
+    "X-USER-TOKEN" : TOKEN
+}
 
 pixela_url = "https://pixe.la/v1/users"
 user_parameters = {
@@ -18,7 +22,7 @@ user_parameters = {
 
 graphs_url = f"{pixela_url}/{USERNAME}/graphs"
 graph_parameters = {
-    "id": "mygraph",
+    "id": ID,
     "name": "Reading Graph",
     "unit": "Pages",
     "type": "int",
@@ -26,9 +30,14 @@ graph_parameters = {
     "timezone": "Asia/Tokyo"
 }
 
-headers = {
-    "X-USER-TOKEN" : TOKEN
+# r = requests.post(url=graphs_url, json=graph_parameters, headers=headers)
+# print(r.text)
+
+pixel = f"{graphs_url}/{ID}"
+pixel_parameters = {
+    "date": "20211122",
+    "quantity": "51"
 }
 
-r = requests.post(url=graphs_url, json=graph_parameters, headers=headers)
+r = requests.post(url=pixel, json=pixel_parameters, headers=headers)
 print(r.text)
