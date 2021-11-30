@@ -3,7 +3,6 @@ from keys import app_id, api_key, username, password
 from datetime import datetime
 import requests
 
-
 USERNAME = username
 PASSWORD = password
 GENDER = "female"
