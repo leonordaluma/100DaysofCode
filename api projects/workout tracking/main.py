@@ -1,8 +1,11 @@
-from keys import app_id, api_key
+from requests.auth import HTTPBasicAuth
+from keys import app_id, api_key, username, password
 from datetime import datetime
 import requests
 
 
+USERNAME = username
+PASSWORD = password
 GENDER = "female"
 WEIGHT =  45
 HEIGHT = 149
@@ -41,5 +44,5 @@ for exercise in exercises:
             "calories": exercise["nf_calories"]
         }
     }
-res = requests.post(url=sheety_endpoint, json=sheety_parameters)
+res = requests.post(url=sheety_endpoint, json=sheety_parameters, auth=HTTPBasicAuth(USERNAME, PASSWORD))
 print(res.text)
