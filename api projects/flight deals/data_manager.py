@@ -12,3 +12,9 @@ class DataManager:
         data = r.json()
         self.destination_data = data["prices"]
         return self.destination_data
+    
+    def update_destination_data(self, code):
+        parameters = {
+            "iatacode": code
+        }
+        r = requests.put(url=SHEETY_ENDPOINT)
