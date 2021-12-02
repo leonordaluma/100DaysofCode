@@ -1,3 +1,8 @@
+from keys import api_key
+import requests
+
+
+ENDPOINT = "https://tequila-api.kiwi.com"
+API_KEY = api_key
 class FlightSearch:
-    #This class is responsible for talking to the Flight Search API.
-    pass
+    
