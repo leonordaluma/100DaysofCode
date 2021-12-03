@@ -25,3 +25,5 @@ for destination in sheet_data:
         from_time= tomorrow,
         to_time= six_months_from_today        
     )
+
+pprint(flight)
