@@ -1,0 +1,6 @@
+api_key = "1kHvlt-ZlspQ-T9L_hL4wVRneo-HDfJN"
+api_key = "1kHvlt-ZlspQ-T9L_hL4wVRneo-HDfJN"
+twilio_sid = "ACee221041248bb35f038c4e5c302e4d29"
+twilio_auth_tokens = "c63977fce8b9104ecb217420c732304e"
+twilio_virtual_number = "+18126498393"
+twilio_verified_number = "+639076469459"
