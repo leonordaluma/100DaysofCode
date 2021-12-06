@@ -5,7 +5,7 @@ from datetime import datetime, time, timedelta
 from pprint import pprint
 # This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 
-ORIGIN_CITY_IATA = "PR"
+ORIGIN_CITY_IATA = "LON"
 data_manager = DataManager()
 notification_manager = NotificationManager()
 flight_search = FlightSearch()
