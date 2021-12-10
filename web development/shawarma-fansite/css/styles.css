@@ -7,9 +7,9 @@ h1 {
     font-size: 100px;
 }
 
-/* img {
-    background-color: khaki;
-} */
+img:hover {
+    background-color: gold;
+}
 
 .shawarma {
     background-color: khaki;
