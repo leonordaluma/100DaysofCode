@@ -1,25 +1,24 @@
 body {
     text-align: center;
+    background-color: beige;
 }
 
 h1 {
     color: khaki;
     font-size: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 img:hover {
-    background-color: gold;
-}
-
-.shawarma {
-    background-color: khaki;
-}
-
-.burrito {
     background-color: bisque;
 }
 
+p {
+    color: darkgrey;
+    font-style: italic;
 
-#heading {
-    color: cornsilk;
+}
+
+.shawarma, .burrito {
+    height: 200px;
 }
