@@ -1,8 +1,20 @@
+body {
+    text-align: center;
+}
+
 h1 {
     color: khaki;
     font-size: 100px;
 }
 
-img {
+/* img {
     background-color: khaki;
+} */
+
+.shawarma {
+    background-color: khaki;
+}
+
+.burrito {
+    background-color: bisque;
 }
