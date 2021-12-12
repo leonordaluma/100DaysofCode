@@ -76,3 +76,18 @@ span {
 .pro {
   text-decoration: underline;
 }
+
+.skill-row {
+  /* display: inline-block; */
+  margin: 100px auto 100px auto;
+  width: 50%;
+}
+
+.skills-text {
+  text-align: left;
+  line-height: 2;
+}
+
+.profile-img, .books-img {
+  width: 25%;
+}
