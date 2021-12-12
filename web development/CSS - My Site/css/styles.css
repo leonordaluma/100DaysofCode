@@ -1,5 +1,5 @@
 a {
-  color: #11999E;
+  color: #11999e;
 }
 
 body {
@@ -12,21 +12,21 @@ h1 {
   margin: 50px auto 0;
   font-family: "Sacramento", cursive;
   font-size: 5.625rem;
-  color: #66BFBF;
+  color: #66bfbf;
 }
 
 h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5rem;
-  color: #66BFBF;
+  color: #66bfbf;
 }
 h3 {
   font-family: "Montserrat", sans-serif;
-  color: #11999E;
+  color: #11999e;
 }
 
 span {
-  text-decoration: underline;
+  font-weight: normal;
 }
 
 .top-container {
@@ -70,4 +70,8 @@ span {
 }
 .bottom-cloud {
   position: absolute;
+}
+
+.pro {
+  text-decoration: underline;
 }
