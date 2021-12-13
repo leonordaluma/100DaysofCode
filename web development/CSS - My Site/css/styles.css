@@ -81,13 +81,22 @@ span {
   /* display: inline-block; */
   margin: 100px auto 100px auto;
   width: 50%;
-}
-
-.skills-text {
   text-align: left;
   line-height: 2;
 }
 
-.profile-img, .books-img {
+.profile-img {
+  width: 25%;
+}
+
+.computer-img {
+  float: left;
+  margin-right: 30px;
+  width: 25%;
+}
+
+.books-img {
+  float: right;
+  margin-left: 30px;
   width: 25%;
 }
