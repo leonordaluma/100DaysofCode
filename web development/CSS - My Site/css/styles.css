@@ -1,5 +1,8 @@
 a {
   color: #11999e;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 body {
@@ -30,16 +33,23 @@ span {
   font-weight: normal;
 }
 
+.bottom-container {
+  background-color: #66BFBF;
+  height: 200px;
+}
+
+.copyright {
+  color: #EAF6F6;
+}
+
 .top-container {
   background-color: #e4f9f5;
   padding-top: 50px;
 }
 
-/* .middle-container {
-}
-
-.bottom-container {
+/* /* .middle-container {
 } */
+
 
 .red {
   height: 200px;
@@ -101,10 +111,10 @@ span {
   width: 25%;
 }
 
-.skill-description1 {
+/* .skill-description1 {
   clear: left;
 }
 
 .skill-description2 {
   clear: right;
-}
+} */
