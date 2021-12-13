@@ -29,17 +29,38 @@ h3 {
   color: #11999e;
 }
 
+hr {
+  border-style: none;
+  border-top-style: dotted;
+  border-color: #EAF6F6;
+  border-width: 5px;
+  width: 3%;
+}
+
 span {
   font-weight: normal;
 }
 
+.btn {
+  background-color: #66bfbf;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  height: 50px;
+  margin-bottom: 30px;
+  position: relative;
+  bottom: 20px;
+}
+
 .bottom-container {
-  background-color: #66BFBF;
+  background-color: #66bfbf;
   height: 200px;
 }
 
 .copyright {
-  color: #EAF6F6;
+  color: #eaf6f6;
   position: relative;
   top: 100px;
 }
@@ -57,7 +78,6 @@ span {
 
 /* /* .middle-container {
 } */
-
 
 .red {
   height: 200px;
