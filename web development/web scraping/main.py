@@ -14,7 +14,13 @@ all_anchor_tags = soup.find_all(name="a")
 #     print(tag.getText())
 #     print(tag.get("href"))
 
-print(soup.find(name="h1", id="name"))
-print(soup.find(name="h3", class_="heading" ))
+# heading = soup.find(name="h1", id="name")
+# print(heading.name)
+# print(heading.getText())
+# print(heading.get("id"))
+# print(soup.find(name="h3", class_="heading" ))
 
+
+url = soup.select_one(selector=".heading")
+print(url.getText())
 
