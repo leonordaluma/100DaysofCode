@@ -15,7 +15,18 @@ for tag in articles:
     link = tag.get("href")
     article_links.append(link)
     
-article_scores = [score.getText() for score in soup.find_all(name="span", class_="score")]
-print(article_texts)
-print(article_links)
+article_scores = [int(score.getText().split()[0]) for score in soup.find_all(name="span", class_="score")]
+# print(article_texts)
+# print(article_links)
 print(article_scores)
+
+# for index in range(len(article_scores)):
+#      if max(article_scores) == article_scores[index]:
+#         print(article_scores[index])
+#         print(article_texts[index])
+#         print(article_links[index])
+
+largest_number = max(article_scores)
+index = article_scores.index(largest_number)
+print(article_texts[index])
+print(article_links[index])
