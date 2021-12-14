@@ -21,6 +21,7 @@ all_anchor_tags = soup.find_all(name="a")
 # print(soup.find(name="h3", class_="heading" ))
 
 
-url = soup.select_one(selector=".heading")
+url = soup.select_one(selector="p em")
+print(url)
 print(url.getText())
 
