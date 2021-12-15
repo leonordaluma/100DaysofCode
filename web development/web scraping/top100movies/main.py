@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
-
 res = requests.get("https://www.empireonline.com/movies/features/best-movies-2/")
 contents = res.text
 soup = BeautifulSoup(contents, "html.parser")
@@ -26,4 +25,7 @@ for a in find_articles(data):
     all_movies.append(a)
 
 movies_desc = all_movies[::-1]
-print(movies_desc)
+
+with open("movies.txt", "w") as file:
+    for title in movies_desc:
+        file.write(f"{title}\n")
