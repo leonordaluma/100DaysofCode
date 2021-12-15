@@ -9,7 +9,7 @@ soup = BeautifulSoup(contents, "html.parser")
 
 data = json.loads(soup.select_one("#__NEXT_DATA__").contents[0])
 # print(json.dumps(titles, indent=4))
-
+all_movies = []
 def find_articles(data):
     if isinstance(data, dict):
         for k, v in data.items():
@@ -23,4 +23,7 @@ def find_articles(data):
 
 
 for a in find_articles(data):
-    print(a)
+    all_movies.append(a)
+
+movies_desc = all_movies[::-1]
+print(movies_desc)
