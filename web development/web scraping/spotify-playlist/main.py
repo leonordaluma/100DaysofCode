@@ -18,8 +18,12 @@ sp = spotipy.Spotify(
         cache_path="token.txt"
     )
 )
+# print(sp.current_user())
 user_id = sp.current_user()["id"]
-print(user_id)
+# print(user_id)
+
+
+
 date_input = input("Which year do you want to travel to? (YYYY-MM-DD): ")
 url = "https://www.billboard.com/charts/hot-100/"
 res = requests.get(f"{url}/{date_input}")
