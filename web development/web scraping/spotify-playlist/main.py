@@ -29,11 +29,26 @@ data = res.text
 
 soup = BeautifulSoup(data, "html.parser")
 top_100_songs = [song.getText() for song in soup.select(selector="li ul li h3", limit=100)]
+tracks = []
+year = date_input.split("-")[0]
+# playlist = sp.user_playlist_create(
+#     user = user_id,
+#     name = f"{date_input} Billboard 100",
+#     public = False
+# )
 
-playlist = sp.user_playlist_create(
-    user = user_id,
-    name = f"{date_input} Billboard 100",
-    public = False
-)
 
-print(playlist)
+for song in top_100_songs:
+    result = sp.search(q=f"track:{song} year:{year}", type="track")
+    print(result)
+    # try:
+    #     uri = result
+    
+    
+    
+# print(playlist)
+# sp.user_playlist_add_tracks(
+#     user= user_id,
+#     playlist_id= playlist["id"],
+#     tracks=
+# )
