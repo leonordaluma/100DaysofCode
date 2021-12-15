@@ -1,0 +1,1 @@
+date_input = input("Which year do you want to travel to? (YYYY-MM-DD): ")
