@@ -40,9 +40,11 @@ year = date_input.split("-")[0]
 
 for song in top_100_songs:
     result = sp.search(q=f"track:{song} year:{year}", type="track")
-    print(result)
-    # try:
-    #     uri = result
+    try:
+        uri = result["tracks"]["items"][0]["uri"]
+        tracks.append(uri)
+    except IndexError:
+        print(f"{song} doesn't exist in Spotify. Skipped.")
     
     
     
