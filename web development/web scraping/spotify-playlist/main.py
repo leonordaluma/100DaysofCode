@@ -31,11 +31,11 @@ soup = BeautifulSoup(data, "html.parser")
 top_100_songs = [song.getText() for song in soup.select(selector="li ul li h3", limit=100)]
 tracks = []
 year = date_input.split("-")[0]
-# playlist = sp.user_playlist_create(
-#     user = user_id,
-#     name = f"{date_input} Billboard 100",
-#     public = False
-# )
+playlist = sp.user_playlist_create(
+    user = user_id,
+    name = f"{date_input} Billboard 100",
+    public = False
+)
 
 
 for song in top_100_songs:
@@ -46,11 +46,8 @@ for song in top_100_songs:
     except IndexError:
         print(f"{song} doesn't exist in Spotify. Skipped.")
     
-    
-    
-# print(playlist)
-# sp.user_playlist_add_tracks(
-#     user= user_id,
-#     playlist_id= playlist["id"],
-#     tracks=
-# )
+sp.user_playlist_add_tracks(
+    user= user_id,
+    playlist_id= playlist["id"],
+    tracks= tracks
+)
