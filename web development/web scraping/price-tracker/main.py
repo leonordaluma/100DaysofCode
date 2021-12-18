@@ -10,4 +10,8 @@ res = requests.get(url=url, headers={
     "User-Agent": user_agent,
     "Accept-Language": accept_lang
 })
-print(res.text)
+data = res.text
+
+soup = BeautifulSoup(data, "lxml")
+price = float(soup.find(name="span", id="priceblock_ourprice").getText().split("$")[1])
+print(price)
