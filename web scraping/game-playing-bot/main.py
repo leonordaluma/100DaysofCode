@@ -25,14 +25,21 @@ driver.get("https://www.python.org/")
 # print(bug_link.text)
 
 
-python_events = {}
 date = driver.find_elements(By.CSS_SELECTOR, '.medium-widget.last li time')
-event = driver.find_elements(By.CSS_SELECTOR, '..most-recent-events li a')
-for e in event:
+events = driver.find_elements(By.CSS_SELECTOR, '..most-recent-events li a')
+for e in events:
     print(e.text)
 
-for _ in range(len(date)):
-    print(_)
+
+python_events = {}
+# python_events_dict = {index: val for index in range(len(date))}
+for index in range(len(date)):
+    python_events[index]
+    python_events[index]["time"] = {d.text for d in date}
+    python_events[index]["name"] = {e.text for e in events}
+
+print(python_events)
+    
 
 
 
