@@ -1,6 +1,6 @@
 from selenium import webdriver
-from selenium.webdriver.chrome import service
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 
 chromedriver_path = "../chromedriver.exe"
 s = Service("../chromedriver.exe")
@@ -21,8 +21,21 @@ driver.get("https://www.python.org/")
 # docs_link = driver.find_element_by_css_selector(".documentation-widget a")
 # print(docs_link.text)
 
-bug_link = driver.find_element_by_xpath('')
-print(bug_link.text)
+# bug_link = driver.find_element_by_xpath('//*[@id="site-map"]/div[2]/div/ul/li[3]/a')
+# print(bug_link.text)
+
+
+python_events = {}
+date = driver.find_elements(By.CSS_SELECTOR, '.medium-widget.last li time')
+event = driver.find_elements(By.CSS_SELECTOR, '..most-recent-events li a')
+for e in event:
+    print(e.text)
+
+for _ in range(len(date)):
+    print(_)
+
+
+
 
 
 driver.quit()
