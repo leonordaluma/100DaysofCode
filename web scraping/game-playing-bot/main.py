@@ -21,6 +21,8 @@ driver.get("https://www.python.org/")
 # docs_link = driver.find_element_by_css_selector(".documentation-widget a")
 # print(docs_link.text)
 
+bug_link = driver.find_element_by_xpath('')
+print(bug_link.text)
 
 
 driver.quit()
