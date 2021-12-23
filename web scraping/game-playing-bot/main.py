@@ -14,15 +14,23 @@ numberOfCookies = int(cookie_money.text)
 
 item_store = driver.find_elements(By.CSS_SELECTOR, '#store div')
 items_id = [i.get_attribute("id") for i in item_store]
-# cookie = driver.find_element(By.ID, 'cookie')
-# timeout = 60*1
-# start = time.time()
+cookie = driver.find_element(By.ID, 'cookie')
+timeout = 5
+stop_loop = 60*1
+start = time.time()
 
-# while True:
-#     cookie.click()
-#     delta = time.time() - start
-#     if delta>= timeout:
-#         break
+while True:
+    cookie.click()
+    delta = time.time() - start
+    
+    if delta>= timeout:
+        pass
+    
+    
+    if delta > stop_loop:
+        cookie_per_s = driver.find_element(By.ID, 'cps')
+        print(cookie_per_s.text)
+        break
     
 
 
