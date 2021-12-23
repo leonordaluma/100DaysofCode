@@ -12,7 +12,7 @@ item_store = driver.find_elements(By.CSS_SELECTOR, '#store div')
 items_id = [i.get_attribute("id") for i in item_store]
 cookie = driver.find_element(By.ID, 'cookie')
 timeout = time.time() + 5
-stop_loop = time.time() + 60 * 2
+stop_loop = time.time() + 60 * 5
 start = time.time()
         
 all_prices = driver.find_elements(By.CSS_SELECTOR, '#store b')
@@ -45,7 +45,7 @@ while True:
         
     if time.time() > stop_loop:
         cookie_per_s = driver.find_element(By.ID, 'cps')
-        print(f"cookies/sec: {cookie_per_s.text}")
+        print(cookie_per_s.text)
         break
 
 driver.quit()
