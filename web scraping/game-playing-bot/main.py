@@ -10,23 +10,19 @@ driver = webdriver.Chrome(service=s)
 driver.get("http://orteil.dashnet.org/experiments/cookie/")
 cookie_money = driver.find_element(By.ID, 'money')
 numberOfCookies = int(cookie_money.text)
-# buy_cursor = driver.find_element(By.ID, 'buyCursor')
-# buy_grandma = driver.find_element(By.ID, 'buyGrandma')
-# buy_factory = driver.find_element(By.ID, 'buyFactory')
-# buy_mine = driver.find_element(By.ID, 'buyMine')
-# buy_shipment = driver.find_element(By.ID, 'buyShipment')
-# buy_alchemy_lab = driver.find_element(By.ID, 'buyAlchemy lab')
-# buy_portal = driver.find_element(By.ID, 'buyPortal')
-# buy_time_machine = driver.find_element(By.ID, 'buyTime machine')
-cookie = driver.find_element(By.ID, 'cookie')
-timeout = 60*1
-start = time.time()
 
-while True:
-    cookie.click()
-    delta = time.time() - start
-    if delta>= timeout:
-        break
+
+item_store = driver.find_elements(By.CSS_SELECTOR, '#store div')
+items_id = [i.get_attribute("id") for i in item_store]
+# cookie = driver.find_element(By.ID, 'cookie')
+# timeout = 60*1
+# start = time.time()
+
+# while True:
+#     cookie.click()
+#     delta = time.time() - start
+#     if delta>= timeout:
+#         break
     
 
 
