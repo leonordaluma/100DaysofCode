@@ -8,10 +8,6 @@ s = Service("../chromedriver.exe")
 driver = webdriver.Chrome(service=s)
 
 driver.get("http://orteil.dashnet.org/experiments/cookie/")
-cookie_money = driver.find_element(By.ID, 'money')
-numberOfCookies = int(cookie_money.text)
-
-
 item_store = driver.find_elements(By.CSS_SELECTOR, '#store div')
 items_id = [i.get_attribute("id") for i in item_store]
 cookie = driver.find_element(By.ID, 'cookie')
@@ -19,15 +15,16 @@ timeout = time.time() + 5
 stop_loop = time.time() + 60
 start = time.time()
 
+def upgrade_tag():
+    affordable_upgrades = {}
+    
 
 all_prices = driver.find_elements(By.CSS_SELECTOR, '#store b')
-for price in all_prices:
-    elements = price.text
-    if elements != "":
-        cost = int(price.text.split("-")[1].strip().replace(",", ""))
-        print(cost)
-# def upgrade_tag():
-#     all_prices = driver.find_elements(By.CSS_SELECTOR, '#store b moni')
+upgrade_prices = [int(price.text.split("-")[1].strip().replace(",", "")) for price in all_prices if price.text != ""]
+cookie_upgrades = {}
+for i in range(len(upgrade_prices)):
+    cookie_upgrades[upgrade_prices[i]] = items_id[i]
+print(cookie_upgrades)
 
 # while True:
 #     cookie.click()
@@ -35,11 +32,16 @@ for price in all_prices:
 #     if time.time() >= timeout:
         
     
-#         timeout = time.time() + 5
-    
+#     #     timeout = time.time() + 5
+#     cookie_money = driver.find_element(By.ID, 'money').text
+#     if "," in cookie_money:
+#         cookie_money.replace(",", "")
+#         numberOfCookies = int(cookie_money)
+        
 #     if time.time() > stop_loop:
 #         cookie_per_s = driver.find_element(By.ID, 'cps')
 #         print(cookie_per_s.text)
+#         print(numberOfCookies)
 #         break
     
 
