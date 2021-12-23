@@ -15,22 +15,32 @@ numberOfCookies = int(cookie_money.text)
 item_store = driver.find_elements(By.CSS_SELECTOR, '#store div')
 items_id = [i.get_attribute("id") for i in item_store]
 cookie = driver.find_element(By.ID, 'cookie')
-timeout = 5
-stop_loop = 60*1
+timeout = time.time() + 5
+stop_loop = time.time() + 60
 start = time.time()
 
-while True:
-    cookie.click()
-    delta = time.time() - start
+
+all_prices = driver.find_elements(By.CSS_SELECTOR, '#store b')
+for price in all_prices:
+    elements = price.text
+    if elements != "":
+        cost = int(price.text.split("-")[1].strip().replace(",", ""))
+        print(cost)
+# def upgrade_tag():
+#     all_prices = driver.find_elements(By.CSS_SELECTOR, '#store b moni')
+
+# while True:
+#     cookie.click()
     
-    if delta>= timeout:
-        pass
+#     if time.time() >= timeout:
+        
     
+#         timeout = time.time() + 5
     
-    if delta > stop_loop:
-        cookie_per_s = driver.find_element(By.ID, 'cps')
-        print(cookie_per_s.text)
-        break
+#     if time.time() > stop_loop:
+#         cookie_per_s = driver.find_element(By.ID, 'cps')
+#         print(cookie_per_s.text)
+#         break
     
 
 
