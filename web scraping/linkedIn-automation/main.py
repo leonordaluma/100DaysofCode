@@ -1,3 +1,4 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -22,7 +23,10 @@ username_input.send_keys(EMAIL)
 password_input.send_keys(PASSWORD)
 password_input.send_keys(Keys.ENTER)
 
+time.sleep(5)
+# driver.maximize_window()
+apply_btn = driver.find_element(By.XPATH, '//*[@id="ember332"]')
+apply_btn.click()
 
-
-driver.quit()
+# driver.quit()
 
