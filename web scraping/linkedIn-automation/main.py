@@ -27,5 +27,7 @@ time.sleep(5)
 apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
 apply_btn.click()
 
+next_btn = driver.find_element(By.CSS_SELECTOR, 'footer button')
+next_btn.click()
 # driver.quit()
 
