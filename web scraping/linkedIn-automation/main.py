@@ -24,8 +24,7 @@ password_input.send_keys(PASSWORD)
 password_input.send_keys(Keys.ENTER)
 
 time.sleep(5)
-# driver.maximize_window()
-apply_btn = driver.find_element(By.XPATH, '//*[@id="ember332"]')
+apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
 apply_btn.click()
 
 # driver.quit()
