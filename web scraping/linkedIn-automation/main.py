@@ -12,22 +12,29 @@ chromedriver_path = "../chromedriver.exe"
 s = Service("../chromedriver.exe")
 driver = webdriver.Chrome(service=s)
 
-driver.get("https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491&keywords=python%20developer&location=London%2C%20England%2C%20United%20Kingdom&redirect=false&position=1&pageNum=0")
+driver.get("https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491&keywords=marketing%20intern&location=London%2C%20England%2C%20United%20Kingdom&redirect=false&position=1&pageNum=0")
 signin_btn = driver.find_element(By.LINK_TEXT, 'Sign in')
 signin_btn.click()
 
 username_input = driver.find_element(By.ID, 'username')
 password_input = driver.find_element(By.ID, 'password')
-submit_btn = driver.find_element(By.XPATH, '//*[@id="organic-div"]/form/div[3]/button')
 username_input.send_keys(EMAIL)
 password_input.send_keys(PASSWORD)
 password_input.send_keys(Keys.ENTER)
 
-time.sleep(5)
-apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
-apply_btn.click()
+job_listings = driver.find_elements(By.CSS_SELECTOR, '.job-card-container--clickable')
+for listing in job_listings:
+    print("called")
+    listing.click()
+    
+    apply_btn = driver.find_element
+    
+    
+    close_btn = driver.find_element(By.CLASS_NAME, 'artdeco-modal__dismiss')
+    close_btn.click()
+# apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
+# apply_btn.click()
 
-next_btn = driver.find_element(By.CSS_SELECTOR, 'footer button')
-next_btn.click()
-# driver.quit()
-
+# next_btn = driver.find_element(By.CSS_SELECTOR, 'footer button')
+# next_btn.click()
+driver.quit()
