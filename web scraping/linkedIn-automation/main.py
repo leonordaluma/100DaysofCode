@@ -27,11 +27,15 @@ for listing in job_listings:
     print("called")
     listing.click()
     
-    apply_btn = driver.find_element
+    apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
+    apply_btn.click()
     
     
     close_btn = driver.find_element(By.CLASS_NAME, 'artdeco-modal__dismiss')
     close_btn.click()
+    
+    discard_btn = driver.find_element(By.ID, 'ember367')
+    discard_btn.click()
 # apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
 # apply_btn.click()
 
