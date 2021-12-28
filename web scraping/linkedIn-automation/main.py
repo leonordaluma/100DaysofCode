@@ -32,21 +32,22 @@ for listing in job_listings:
         apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
         apply_btn.click()
         
-    
-    
-        close_btn = driver.find_element(By.CLASS_NAME, 'artdeco-modal__dismiss')
-        close_btn.click()
+        next_btn = driver.find_element(By.CSS_SELECTOR, 'footer button')
+        if next_btn.get_attribute('data-control-name') == 'continue_unify':
+            close_btn = driver.find_element(By.CLASS_NAME, 'artdeco-modal__dismiss')
+            close_btn.click()            
+            discard_btn = driver.find_element(By.ID, 'ember367')
+            discard_btn.click()
+            print("Complex application, skipped")
+            continue
+        else:
+            next_btn.click()
         
-        discard_btn = driver.find_element(By.ID, 'ember367')
-        discard_btn.click()
-    
+        close_btn = driver.find_element(By.ID, 'ember371')
+        close_btn.click()
+            
     except NoSuchElementException:
         print("No application button, skipped")
         continue
     
-# apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
-# apply_btn.click()
-
-# next_btn = driver.find_element(By.CSS_SELECTOR, 'footer button')
-# next_btn.click()
 driver.quit()
