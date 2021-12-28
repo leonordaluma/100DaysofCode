@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException
 from credentials import ACCOUNT_EMAIL, ACCOUNT_PASSWORD
 
 EMAIL = ACCOUNT_EMAIL
@@ -27,15 +28,22 @@ for listing in job_listings:
     print("called")
     listing.click()
     
-    apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
-    apply_btn.click()
+    try:
+        apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
+        apply_btn.click()
+        
     
     
-    close_btn = driver.find_element(By.CLASS_NAME, 'artdeco-modal__dismiss')
-    close_btn.click()
+        close_btn = driver.find_element(By.CLASS_NAME, 'artdeco-modal__dismiss')
+        close_btn.click()
+        
+        discard_btn = driver.find_element(By.ID, 'ember367')
+        discard_btn.click()
     
-    discard_btn = driver.find_element(By.ID, 'ember367')
-    discard_btn.click()
+    except NoSuchElementException:
+        print("No application button, skipped")
+        continue
+    
 # apply_btn = driver.find_element(By.CSS_SELECTOR, '.jobs-s-apply button')
 # apply_btn.click()
 
