@@ -19,16 +19,16 @@ class InternetSpeedTwitterBot:
     
     
     def get_internet_speed(self):
+        self.driver.implicitly_wait(260)
         self.driver.get("https://www.speedtest.net/")
         self.go_button = self.driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[1]/a')
-        self.go_button.click()
-        # sleep(180)
+        self.go_button.click()        
         
         self.down = self.driver.find_element(By.CLASS_NAME, 'download-speed')
         self.up = self.driver.find_element(By.CLASS_NAME, 'upload-speed')
         print(f"down: {self.down.text}")
         print(f"up: {self.up.text}")
-        
+        # selenium waits
         self.driver.quit()
         
         
