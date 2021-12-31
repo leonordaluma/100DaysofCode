@@ -2,9 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from account import username, password
-from time import sleep, time
 
 TWITTER_EMAIL = username
 TWITTER_PASSWORD = password
@@ -21,12 +21,11 @@ class InternetSpeedTwitterBot:
         self.up = 0
 
     def get_internet_speed(self):
-        # self.driver.implicitly_wait(260)
         self.driver.get("https://www.speedtest.net/")
-        self.go_button = self.driver.find_element(
-            By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[1]/a')
-        self.go_button.click()
-
+        go_button = self.driver.find_element(
+            By.CSS_SELECTOR, '.start-button a')
+        go_button.click()
+        
         upload_speed_locator = (
             By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[3]/div/div[2]/span')
         
@@ -38,6 +37,7 @@ class InternetSpeedTwitterBot:
             By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span').text
         self.up = self.driver.find_element(
             By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[3]/div/div[2]/span').text
+        
         print(f"down: {self.down}")
         print(f"up: {self.up}")
         self.driver.quit()
@@ -45,8 +45,13 @@ class InternetSpeedTwitterBot:
 
 
     def tweet_at_provider(self):
-        pass
+        self.driver.get("https://twitter.com/")
+        twitter_signin = self.driver.find_element(By.LINK_TEXT, 'Sign in')
+        twitter_signin.click()
+        
+        # self.driver.quit()
 
 
 bot = InternetSpeedTwitterBot()
-bot.get_internet_speed()
+# bot.get_internet_speed()
+bot.tweet_at_provider()
