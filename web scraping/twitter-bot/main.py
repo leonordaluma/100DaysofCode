@@ -44,6 +44,8 @@ class InternetSpeedTwitterBot:
 
     def tweet_at_provider(self):
         self.driver.get("https://twitter.com/login")
+        input_field = self.driver.find_element(By.XPATH, '//*[@id="react-root"]/div/div/div/main/div/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]')
+        input_field.click()
         
 
 
