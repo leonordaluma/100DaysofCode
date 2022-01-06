@@ -25,31 +25,26 @@ class InternetSpeedTwitterBot:
         go_button = self.driver.find_element(
             By.CSS_SELECTOR, '.start-button a')
         go_button.click()
-        
+
         upload_speed_locator = (
             By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[3]/div/div[2]/span')
-        
+
         WebDriverWait(self.driver, 180).until(
             EC.text_to_be_present_in_element(upload_speed_locator, "."),
             "test didn't complete.(or spend more the 3 minute)"
-                )
+        )
         self.down = self.driver.find_element(
             By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span').text
         self.up = self.driver.find_element(
             By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[3]/div/div[2]/span').text
-        
+
         print(f"down: {self.down}")
         print(f"up: {self.up}")
         self.driver.quit()
 
-
-
     def tweet_at_provider(self):
-        self.driver.get("https://twitter.com/")
-        twitter_signin = self.driver.find_element(By.LINK_TEXT, 'Sign in')
-        twitter_signin.click()
+        self.driver.get("https://twitter.com/login")
         
-        # self.driver.quit()
 
 
 bot = InternetSpeedTwitterBot()
