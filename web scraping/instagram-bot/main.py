@@ -15,3 +15,17 @@ class InstaFollower:
          self.driver = webdriver.Chrome(service=self.s)
     
     
+    def login(self):
+        pass
+    
+    def find_followers(self):
+        pass
+    
+    def follow(self):
+        pass
+
+
+insta = InstaFollower()
+insta.login()
+insta.find_followers()
+insta.follow()
