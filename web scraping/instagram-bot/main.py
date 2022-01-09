@@ -16,7 +16,12 @@ class InstaFollower:
     
     
     def login(self):
-        pass
+        self.driver.get("https://www.instagram.com/")
+        # username_input = self.driver.find_element(By.NAME, "username")
+        username_input = self.driver.find_element(By.XPATH, '//*[@id="loginForm"]/div/div[1]/div/label/input')
+        # password = self.driver.find_element(By.NAME, "password")
+        username_input.send_keys(USERNAME)
+        # password.send_keys(PASSWORD)
     
     def find_followers(self):
         pass
