@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from credentials import username, password
 
 CHROME_DRIVER_PATH = "../chromedriver.exe"
@@ -21,7 +22,7 @@ class InstaFollower:
         username_input.send_keys(USERNAME)
         password_input = self.driver.find_element(By.NAME, 'password')
         password_input.send_keys(PASSWORD)
-        password_input.send_keys()
+        password_input.send_keys(Keys.ENTER)
     
     def find_followers(self):
         pass
