@@ -18,17 +18,21 @@ class InstaFollower:
         self.driver = webdriver.Chrome(service=self.s)
 
     def login(self):
-        self.driver.find_element(By.LINK_TEXT, 'Log In').click()
-        username_input = self.driver.find_element(By.CLASS_NAME, '_2hvTZ')
+        # self.driver.find_element(By.LINK_TEXT, 'Log In').click()
+        self.driver.get('https://www.instagram.com/')
+        username_input = self.driver.find_element(By.NAME, 'username')
         username_input.send_keys(USERNAME)
         password_input = self.driver.find_element(By.NAME, 'password')
         password_input.send_keys(PASSWORD)
         password_input.send_keys(Keys.ENTER)
+        # self.driver.implicitly_wait(10)
+        # self.driver.find_element(By.CSS_SELECTOR, '.sqdOP .yWX7d .y3zKF').click()
+        # self.driver.find_element(By.CSS_SELECTOR, '.aOOlW .HoLwm ').click()
+        self.driver.get(f'https://www.instagram.com/{SIMILAR_ACCOUNT}/')
         
         
 
     def find_followers(self):
-        self.driver.get(f'https://www.instagram.com/{SIMILAR_ACCOUNT}/')
         pass
 
     def follow(self):
@@ -36,6 +40,6 @@ class InstaFollower:
 
 
 insta = InstaFollower()
-insta.find_followers()
 insta.login()
+insta.find_followers()
 insta.follow()
