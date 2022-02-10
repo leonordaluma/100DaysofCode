@@ -16,6 +16,8 @@ headers = {
 r = requests.get(url=zillow_url, headers=headers)
 data = r.text
 
-soup = BeautifulSoup(data, 'lxml')
-price = soup.find(name="div", class_="list-card-price").getText()
-print(price)
+# soup = BeautifulSoup(data, 'lxml')
+# price = soup.find_all(name="a", class_="list-card-link")
+# for p in price:
+#     print(p.getText())
+#     print(p.get("href"))
