@@ -2,13 +2,29 @@ from distutils.log import debug
 from flask import Flask
 
 app = Flask(__name__)
+def make_bold(function):
+    def wrapped_function():
+        return f"<b>{function()}</b>"
+    return wrapped_function
 
-print(__name__)
+def make_emphasis(function):
+    def wrapped_function():
+        return f"<em>{function()}</em>"
+    return wrapped_function
 
-@app.route("/")
-def hello_world():
-    return '<h1 style="text-align: center">Hello there!</h1> \
-            <p>This is a paragraph</p>'
+def make_underlined(function):
+    def wrapped_function():
+        return f"<u>{function()}</u>"
+    return wrapped_function
+
+
+@app.route("/bye")
+@make_bold
+@make_emphasis
+@make_underlined
+def bye():
+    return "Bye!"
+
 
 @app.route("/username/<name>/<int:age>")
 def greet(name, age):
